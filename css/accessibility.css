@@ -229,70 +229,105 @@ select:focus-visible,
    מצבי נגישות שמופעלים על <html> / <body>
    ========================================================= */
 
-/* גווני אפור (מונוכרום) */
-html.acc-grayscale { filter: grayscale(100%); }
+/* הערה: בכל מצבי הניגודיות אנו מחריגים את רכיב הנגישות עצמו
+   (.acc-widget והצאצאים שלו, וכן קישור הדילוג) כדי שהתפריט יישאר קריא */
 
-/* ניגודיות כהה */
-body.acc-dark,
-body.acc-dark .navbar,
-body.acc-dark .footer,
-body.acc-dark section,
-body.acc-dark .mobile-menu {
-  background: #000 !important;
-  color: #fff !important;
+/* גווני אפור (מונוכרום) – על תוכן הדף בלבד, לא על התפריט */
+body.acc-grayscale > *:not(.acc-widget):not(.acc-skip-link) {
+  filter: grayscale(100%);
 }
-body.acc-dark * {
-  background-color: transparent !important;
+
+/* ---------- ניגודיות כהה ---------- */
+body.acc-dark { background: #000 !important; }
+body.acc-dark *:not(.acc-widget):not(.acc-widget *):not(.acc-skip-link) {
+  background-color: #000 !important;
+  background-image: none !important;
   color: #fff !important;
   border-color: #fff !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
 }
-body.acc-dark a,
-body.acc-dark a * { color: #ffea00 !important; }
-body.acc-dark img,
-body.acc-dark video { opacity: .9; }
-body.acc-dark .btn,
-body.acc-dark .btn-gold,
-body.acc-dark .btn-submit,
-body.acc-dark button {
-  background: #ffea00 !important;
+/* קישורים – צהוב בולט */
+body.acc-dark a:not(.acc-widget *):not(.acc-skip-link),
+body.acc-dark a:not(.acc-widget *) *:not(.acc-widget *) {
+  color: #ffea00 !important;
+}
+/* כפתורים – צהוב עם טקסט שחור, קריא */
+body.acc-dark .btn:not(.acc-widget *),
+body.acc-dark .btn-gold:not(.acc-widget *),
+body.acc-dark .btn-submit:not(.acc-widget *),
+body.acc-dark button:not(.acc-widget *):not(.acc-skip-link) {
+  background-color: #ffea00 !important;
   color: #000 !important;
   border: 2px solid #fff !important;
 }
-body.acc-dark .acc-panel,
-body.acc-dark .acc-panel * { background-color: initial; }
+body.acc-dark .btn:not(.acc-widget *) *,
+body.acc-dark button:not(.acc-widget *) * { color: #000 !important; }
+body.acc-dark img:not(.acc-widget *) { opacity: .92; }
 
-/* ניגודיות בהירה */
-body.acc-light * {
+/* ---------- ניגודיות בהירה ---------- */
+body.acc-light { background: #fff !important; }
+body.acc-light *:not(.acc-widget):not(.acc-widget *):not(.acc-skip-link) {
   background-color: #fff !important;
+  background-image: none !important;
   color: #000 !important;
   border-color: #000 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
 }
-body.acc-light a,
-body.acc-light a * { color: #00159c !important; text-decoration: underline !important; }
-body.acc-light img, body.acc-light video { filter: contrast(1.15); }
-body.acc-light .acc-panel,
-body.acc-light .acc-panel * { background-color: initial; }
+/* קישורים – כחול כהה עם קו תחתון */
+body.acc-light a:not(.acc-widget *):not(.acc-skip-link),
+body.acc-light a:not(.acc-widget *) *:not(.acc-widget *) {
+  color: #00148c !important;
+  text-decoration: underline !important;
+}
+/* כפתורים – כהה עם טקסט לבן, קריא */
+body.acc-light .btn:not(.acc-widget *),
+body.acc-light .btn-gold:not(.acc-widget *),
+body.acc-light .btn-submit:not(.acc-widget *),
+body.acc-light button:not(.acc-widget *):not(.acc-skip-link) {
+  background-color: #0B1E3D !important;
+  color: #fff !important;
+  border: 2px solid #000 !important;
+}
+body.acc-light .btn:not(.acc-widget *) *,
+body.acc-light button:not(.acc-widget *) * { color: #fff !important; }
+body.acc-light img:not(.acc-widget *) { filter: contrast(1.1); }
 
-/* הדגשת קישורים */
-body.acc-links a:not(.acc-skip-link):not(.acc-toggle) {
+/* ---------- הדגשת קישורים ---------- */
+body.acc-links a:not(.acc-widget *):not(.acc-skip-link) {
   text-decoration: underline !important;
   text-underline-offset: 3px;
   outline: 2px solid #C9972B;
   outline-offset: 1px;
-  background: #fff8e6 !important;
+  background-color: #fff8e6 !important;
   color: #0B1E3D !important;
   border-radius: 3px;
 }
+body.acc-links a:not(.acc-widget *) * { color: #0B1E3D !important; }
 
-/* הדגשת כותרות */
-body.acc-titles h1,
-body.acc-titles h2,
-body.acc-titles h3,
-body.acc-titles h4,
-body.acc-titles h5 {
-  outline: 2px dashed #C9972B;
+/* ---------- הדגשת כותרות (כולל כפיית טקסט כהה כדי שלא ייעלם) ---------- */
+body.acc-titles h1:not(.acc-widget *),
+body.acc-titles h2:not(.acc-widget *),
+body.acc-titles h3:not(.acc-widget *),
+body.acc-titles h4:not(.acc-widget *),
+body.acc-titles h5:not(.acc-widget *) {
+  outline: 3px solid #C9972B;
   outline-offset: 3px;
-  background: #fff8e6 !important;
+  background-color: #fff8e6 !important;
+  color: #0B1E3D !important;
+  -webkit-text-fill-color: #0B1E3D !important;
+  text-shadow: none !important;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+body.acc-titles h1:not(.acc-widget *) *,
+body.acc-titles h2:not(.acc-widget *) *,
+body.acc-titles h3:not(.acc-widget *) *,
+body.acc-titles h4:not(.acc-widget *) *,
+body.acc-titles h5:not(.acc-widget *) * {
+  color: #0B1E3D !important;
+  -webkit-text-fill-color: #0B1E3D !important;
 }
 
 /* גופן קריא */

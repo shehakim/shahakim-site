@@ -12,7 +12,7 @@
   var TOGGLES = [
     { id: 'acc-light',    target: 'body', label: 'ניגודיות בהירה', icon: 'contrast' },
     { id: 'acc-dark',     target: 'body', label: 'ניגודיות כהה',   icon: 'moon' },
-    { id: 'acc-grayscale',target: 'html', label: 'גווני אפור',     icon: 'drop' },
+    { id: 'acc-grayscale',target: 'body', label: 'גווני אפור',     icon: 'drop' },
     { id: 'acc-links',    target: 'body', label: 'הדגשת קישורים',  icon: 'link' },
     { id: 'acc-titles',   target: 'body', label: 'הדגשת כותרות',   icon: 'heading' },
     { id: 'acc-readable', target: 'body', label: 'גופן קריא',      icon: 'font' },

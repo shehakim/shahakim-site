@@ -7,6 +7,41 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/accessibility.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .platform-cta {
+      max-width: 860px;
+      margin: 36px auto 0;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 28px 32px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      box-shadow: 0 12px 32px rgba(11,30,61,.22);
+    }
+    .platform-cta-icon {
+      flex: 0 0 auto;
+      width: 64px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 14px;
+      background: rgba(201,151,43,.18);
+      color: var(--gold-light);
+      font-size: 1.7rem;
+    }
+    .platform-cta-text { flex: 1; }
+    .platform-cta-text h3 {
+      color: #fff;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      font-size: 1.25rem;
+    }
+    .platform-cta-text p { color: rgba(255,255,255,.82); margin: 0; line-height: 1.6; }
+    .platform-cta .btn { flex: 0 0 auto; white-space: nowrap; }
+    @media (max-width: 640px) {
+      .platform-cta { flex-direction: column; text-align: center; gap: 18px; padding: 28px 22px; }
+      .platform-cta-text p { font-size: .95rem; }
+    }
+  </style>
 </head>
 <body class="has-bg-blur">
 
@@ -60,9 +95,22 @@
       <p>הבקרה התקציבית מתבצעת בתחומים מגוונים ובהם תקצוב סייעות, הסעות, תקציבי חינוך מיוחד, אבטחת מוסדות חינוך, בתי ספר על-יסודיים, גפ"ן מוסדי, רשותי, תקציבי תקומה, תנופה ותחומים נוספים רבים.</p>
       <p>צוות המשרד מונה כ-40 אנשי מקצוע בעלי השכלה אקדמית רלוונטית וניסיון רב בתחומי החינוך והרווחה.</p>
       <p>בנוסף לכך, המשרד מעסיק צוות מתכנתות מקצועי לצד הקמת מערכות ותוכנות ייעודיות שפותחו באופן ייחודי לצורך ניתוח נתונים, בקרה תקציבית ומעקב שוטף אחר מקורות התקצוב.</p>
+      <p>כיום אנו מרחיבים את פעילותנו ומפתחים <strong>Technology Platform</strong> — פלטפורמת ענן (SaaS) חכמה ומשולבת לשלטון המקומי, המאחדת ניהול תקציבים, כוח אדם ומשאבים ברשויות המקומיות במערכת אחת. הפלטפורמה מביאה את הידע והניסיון של המשרד לכדי כלים דיגיטליים מתקדמים, מבוססי נתונים, הזמינים לרשויות בכל עת.</p>
       <p>שילוב הידע המקצועי עם כלים טכנולוגיים מתקדמים מאפשר למשרד לבצע בקרה מדויקת ויעילה ולהעניק ללקוחותיו שירות ברמה הגבוהה ביותר.</p>
       <p>המשרד מנוהל על-ידי שלושה שותפים בעלי ניסיון מקצועי עשיר בתחומי החשבונאות, הבקרה ומערכות המידע. השותפים פועלים מזה כ-15 שנים בשיתוף פעולה הדוק עם גורמי משרד החינוך, משרד הרווחה וגורמי מפתח ברשויות המקומיות.</p>
       <p>ייחודיות השירות של המשרד טמונה בליווי אישי ורציף, המשלב מקצועיות ללא פשרות עם שקיפות ודיוק. אנו מחויבים להתאמה מלאה לצרכיה היחודיים של כל רשות מקומית, תוך הבנת האתגרים המקומיים לעומקם.</p>
+    </div>
+
+    <!-- TECHNOLOGY PLATFORM CTA -->
+    <div class="platform-cta reveal">
+      <div class="platform-cta-icon"><i class="fa-solid fa-cloud"></i></div>
+      <div class="platform-cta-text">
+        <h3>Technology Platform</h3>
+        <p>הכירו את פלטפורמת הענן החדשה שלנו לניהול תקציבים, כוח אדם ומשאבים בשלטון המקומי.</p>
+      </div>
+      <a href="https://lp.tpshk.org.il" target="_blank" rel="noopener" class="btn btn-gold">
+        לפלטפורמת הענן <i class="fa-solid fa-arrow-left fa-xs"></i>
+      </a>
     </div>
   </div>
 </section>
@@ -95,6 +143,7 @@
           <li><a href="clients.html"><i class="fa-solid fa-chevron-left fa-xs"></i> לקוחות</a></li>
           <li><a href="careers.html"><i class="fa-solid fa-chevron-left fa-xs"></i> קריירה</a></li>
           <li><a href="contact.html"><i class="fa-solid fa-chevron-left fa-xs"></i> צור קשר</a></li>
+          <li><a href="https://lp.tpshk.org.il" target="_blank" rel="noopener"><i class="fa-solid fa-cloud fa-xs"></i> Technology Platform</a></li>
         </ul>
       </div>
       <div class="footer-col">
