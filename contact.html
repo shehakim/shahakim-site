@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>צור קשר | ד.ר שחקים</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/accessibility.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-top: 32px;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 320px;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo">
+      <img src="לוגו שחקים.png" alt="ד.ר שחקים">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">בית</a></li>
+      <li><a href="about.html">אודות</a></li>
+      <li><a href="team.html">הצוות הבכיר</a></li>
+      <li><a href="services.html">שירותי החברה</a></li>
+      <li><a href="clients.html">לקוחותינו</a></li>
+      <li><a href="careers.html">קריירה</a></li>
+      <li><a href="contact.html" class="active">צור קשר</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="תפריט">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" id="closeMenu">×</button>
+  <a href="index.html">בית</a>
+  <a href="about.html">אודות</a>
+  <a href="team.html">הצוות הבכיר</a>
+  <a href="services.html">שירותי החברה</a>
+  <a href="clients.html">לקוחותינו</a>
+  <a href="careers.html">קריירה</a>
+  <a href="contact.html">צור קשר</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>צור קשר</h1>
+    <div class="breadcrumb">
+      <a href="index.html">בית</a>
+      <span class="sep">/</span>
+      <span>צור קשר</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-py">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- INFO -->
+      <div class="reveal">
+        <span class="section-label">נשמח לשמוע מכם</span>
+        <h2 class="section-title" style="margin-bottom:32px">פרטי התקשרות</h2>
+
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div>
+            <strong>כתובת</strong>
+            <p>האורגים 21, אשדוד, ישראל</p>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <div>
+            <strong>טלפון</strong>
+            <a href="tel:0086550759">08-6550759</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div>
+            <strong>דואר אלקטרוני</strong>
+            <a href="mailto:info@shk.org.il">info@shk.org.il</a>
+          </div>
+        </div>
+
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3406.5!2d34.65!3d31.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b2c1f6c1b1b1%3A0x0!2z15TXkdeZ15Eg4oCU15DXqNeZ15Q!5e0!3m2!1siw!2sil!4v1"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="reveal">
+        <span class="section-label">שלחו הודעה</span>
+        <h2 class="section-title" style="margin-bottom:32px">צרו קשר</h2>
+        <form class="contact-form" data-label="צור קשר">
+          <div class="form-row">
+            <div class="form-group">
+              <label>שם *</label>
+              <input type="text" name="contact_name" placeholder="שם מלא" required>
+            </div>
+            <div class="form-group">
+              <label>טלפון</label>
+              <input type="tel" name="contact_phone" placeholder="05X-XXXXXXX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>כתובת דואר אלקטרוני *</label>
+            <input type="email" name="contact_email" placeholder="your@email.com" required style="direction:ltr;text-align:right">
+          </div>
+          <div class="form-group">
+            <label>הודעה</label>
+            <textarea name="contact_message" placeholder="כתבו את הודעתכם כאן..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit" data-label="צור קשר">
+            <i class="fa-solid fa-paper-plane"></i> צור קשר
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="לוגו שחקים.png" alt="ד.ר שחקים"></div>
+        <p>המשרד המוביל בישראל בתחומי הניהול, הבקרה והליווי המקצועי של תקציבי חינוך ורווחה למגזר המוניציפלי.</p>
+      </div>
+      <div class="footer-col">
+        <h5>ניווט מהיר</h5>
+        <ul>
+          <li><a href="index.html"><i class="fa-solid fa-chevron-left fa-xs"></i> בית</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-chevron-left fa-xs"></i> אודות</a></li>
+          <li><a href="team.html"><i class="fa-solid fa-chevron-left fa-xs"></i> הצוות</a></li>
+          <li><a href="services.html"><i class="fa-solid fa-chevron-left fa-xs"></i> שירותים</a></li>
+          <li><a href="clients.html"><i class="fa-solid fa-chevron-left fa-xs"></i> לקוחות</a></li>
+          <li><a href="careers.html"><i class="fa-solid fa-chevron-left fa-xs"></i> קריירה</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-chevron-left fa-xs"></i> צור קשר</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>צור קשר</h5>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> <span>האורגים 21, אשדוד, ישראל</span></li>
+          <li><i class="fa-solid fa-phone"></i> <a href="tel:0086550759">08-6550759</a></li>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@shk.org.il">info@shk.org.il</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <div>© 2026 ד.ר שחקים בע"מ. כל הזכויות שמורות.</div>
+      <div class="footer-bottom-right">D.R SHEHAKIM LTD</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/accessibility.js"></script>
+</body>
+</html>
