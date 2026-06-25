@@ -61,31 +61,35 @@
         <div class="gold-divider"><i class="fa-solid fa-diamond"></i></div>
         <p>שלחו לנו את פרטיכם וקורות החיים שלכם ונחזור אליכם בהקדם</p>
       </div>
-      <form class="careers-form reveal" data-label="שלח">
+      <form class="careers-form reveal" action="https://formsubmit.co/info@shk.org.il" method="POST" enctype="multipart/form-data" data-label="שלח">
+        <input type="hidden" name="_subject" value="מועמדות חדשה מאתר שחקים">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row">
           <div class="form-group">
             <label>שם מלא *</label>
-            <input type="text" placeholder="הכנס שם מלא" required>
+            <input type="text" name="שם מלא" placeholder="הכנס שם מלא" required>
           </div>
           <div class="form-group">
             <label>מספר טלפון</label>
-            <input type="tel" placeholder="05X-XXXXXXX">
+            <input type="tel" name="טלפון" placeholder="05X-XXXXXXX">
           </div>
         </div>
         <div class="form-group">
           <label>דואר אלקטרוני *</label>
-          <input type="email" placeholder="your@email.com" required>
+          <input type="email" name="אימייל" placeholder="your@email.com" required>
         </div>
         <div class="form-group">
           <label>הודעה</label>
-          <textarea placeholder="ספרו לנו קצת על עצמכם ועל התפקיד המבוקש..."></textarea>
+          <textarea name="הודעה" placeholder="ספרו לנו קצת על עצמכם ועל התפקיד המבוקש..."></textarea>
         </div>
         <div class="form-group">
           <label>קורות חיים *</label>
           <label class="file-input-wrap" for="cvFile">
             <i class="fa-solid fa-cloud-arrow-up"></i>
             <p id="fileLabel">העלה קורות חיים (PDF / Word)</p>
-            <input type="file" id="cvFile" accept=".pdf,.doc,.docx">
+            <input type="file" id="cvFile" name="קורות חיים" accept=".pdf,.doc,.docx" required>
           </label>
         </div>
         <button type="submit" class="btn-submit" data-label="שלח">

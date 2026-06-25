@@ -108,22 +108,41 @@ if (svcCards.length) {
   updateFocus();
 }
 
-// Form submission feedback
-document.querySelectorAll('form.contact-form, form.careers-form').forEach(form => {
-  form.addEventListener('submit', (e) => {
+// Contact forms → נשלח דרך FormSubmit ב-AJAX (נשאר בעמוד, בלי backend)
+document.querySelectorAll('form.contact-form').forEach(form => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('[type=submit]');
-    btn.textContent = 'הודעה נשלחה! תודה.';
-    btn.style.background = '#10B981';
+    const label = btn.dataset.label || 'שלח';
     btn.disabled = true;
+    btn.textContent = 'שולח...';
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/info@shk.org.il', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      const data = await res.json();
+      if (String(data.success) === 'true') {
+        btn.textContent = 'הודעה נשלחה! תודה.';
+        btn.style.background = '#10B981';
+        form.reset();
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      btn.textContent = 'אירעה שגיאה — נסו שוב';
+      btn.style.background = '#EF4444';
+    }
     setTimeout(() => {
-      btn.textContent = btn.dataset.label || 'שלח';
+      btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> ' + label;
       btn.style.background = '';
       btn.disabled = false;
-      form.reset();
     }, 4000);
   });
 });
+
+// טופס הקריירה נשלח באופן רגיל (multipart) ל-FormSubmit — כדי לתמוך בצירוף קובץ קו"ח.
 
 // File input display
 const fileInput = document.getElementById('cvFile');
