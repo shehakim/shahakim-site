@@ -145,7 +145,7 @@
 
 ## 9. גיט והעלאה לגיטהאב
 
-- **Repository**: `https://github.com/shehakim/shahakim-site` (פרטי)
+- **Repository**: `https://github.com/shehakim/shahakim-site` (**ציבורי** — נדרש כדי ש-GitHub Pages יעבוד בחינם. הפך מפרטי לציבורי ב-29/06/2026)
 - **בעלים**: הארגון `shehakim` בגיטהאב (לא החשבון האישי `dr-shehakim`)
 - **Branch ראשי**: `main`
 - **Remote**: `origin` → `https://github.com/shehakim/shahakim-site.git`
@@ -165,16 +165,43 @@ git add -A && git commit -m "תיאור השינוי" && git push
 
 ---
 
-## 10. חיבור לאוויר (דומיין) — טרם בוצע
+## 10. חיבור לאוויר (דומיין) — בוצע ✅ (29/06/2026)
 
-האתר **עדיין לא מחובר לאוויר** — נמצא רק בגיטהאב לפי בקשת הלקוחה.
-ההמלצה כשנרצה לחבר: **GitHub Pages** (חינמי, אוטומטי בכל push).
+האתר **מחובר לדומיין `tpshk.org.il`** דרך **GitHub Pages** (חינמי, פריסה אוטומטית בכל push ל-`main`).
 
-הקבצים כבר מוכנים מראש (`CNAME` עם `tpshk.org.il`, `.nojekyll`). יישאר רק:
-1. **Settings → Pages** ב-repo: Source = Deploy from a branch, Branch = `main` / root.
-2. ב-internic/אינטרספייס להגדיר 4 רשומות **A** לדומיין הראשי:
-   `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-3. לוודא Custom domain = `tpshk.org.il` ולסמן **Enforce HTTPS**.
+### רשם הדומיין וניהול ה-DNS
+- **רשם**: **Internic** (`internic.co.il`). הדומיין בחשבון `Noa Vainman`.
+- **ניהול DNS**: דרך עורך ה-Zone — `https://portal.internic.co.il/zone/112329`.
+- שרתי השמות (NS) של הדומיין הם `ns1.sitesdepot.com` / `ns2.sitesdepot.com` (תשתית ה-DNS של Internic).
+  עריכה בעורך ה-Zone **חיה ואוטוריטטיבית** (השינויים נכנסים לתוקף, יש לפעמים עיכוב פרסום של דקות).
+- ⚠️ **תקלה מוכרת**: אם פג תוקף ההתחברות לפורטל — השמירה נכשלת עם "אירעה שגיאה במהלך השמירה".
+  הפתרון: להתחבר מחדש (משתמש+סיסמה) ואז לשמור.
+
+### רשומות ה-DNS שהוגדרו
+- **`tpshk.org.il` (apex)** — 4 רשומות **A** לכתובות GitHub Pages:
+  `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
+  (הוסרה רשומת ה-A הישנה `80.244.162.32` של דף חניית Interspace.)
+- **`www.tpshk.org.il`** — CNAME → `tpshk.org.il` (יורש את כתובות גיטהאב).
+
+### צד GitHub
+- הריפו הופך ל-**ציבורי** (חובה ל-Pages חינמי), Settings → Pages: Source = Deploy from a branch, Branch = `main` / root.
+- **Custom domain** = `tpshk.org.il`, עבר **"DNS check successful"**.
+- **Enforce HTTPS** — לסמן ברגע שתעודת ה-HTTPS של גיטהאב מונפקת (אוטומטי, דקות עד שעה אחרי ה-DNS check).
+
+### דף נחיתה נפרד — `lp.tpshk.org.il`
+- ריפו נפרד: `https://github.com/shehakim/tpshk-landing` (ציבורי), אותה הגדרת Pages, Custom domain = `lp.tpshk.org.il`.
+- DNS: רשומת **CNAME** `lp.tpshk.org.il` → `shehakim.github.io`.
+
+### ⚠️ פרויקטים נוספים באותו דומיין — לא לגעת!
+ב-Zone של `tpshk.org.il` יש רשומות של פרויקט **אחר** — אפליקציית "תקן מול איוש" שרצה על **Railway** דרך תת-הדומיין `hr.tpshk.org.il`. **אסור למחוק/לשנות**:
+- `hr.tpshk.org.il` (CNAME → `*.up.railway.app`)
+- `_railway-verify.hr.tpshk.org.il` (TXT)
+- וגם רשומות המייל: `mail`, `webmail` (A), `MX`, ו-`ftp`.
+**כלל אצבע**: בעת עריכת ה-Zone — רק **להוסיף** שורות, לא למחוק/לשנות קיימות (אלא אם זו רשומה שלנו במפורש).
+
+### הערות
+- **TTL/מטמון**: לרשומה הישנה היה TTL של 24 שעות, ולכן אחרי השינוי ייתכן שמכשירים/ראוטרים יציגו זמנית את דף ה-Interspace הישן עד שהמטמון יתרענן (עד 24 שעות; רוב שרתי ה-DNS הגדולים מתעדכנים מהר). ניקוי מטמון מקומי: `ipconfig /flushdns` (מחשב), מצב טיסה/הפעלה מחדש (טלפון/ראוטר).
+- **NetFree (נטפרי)**: הלקוחה גולשת דרך סינון נטפרי שחוסם את הדומיין החדש (`418 Blocked`). יש לבקש מנטפרי לאשר את `tpshk.org.il` / `lp.tpshk.org.il`. לא משפיע על גולשים שאינם על נטפרי.
 
 ---
 
