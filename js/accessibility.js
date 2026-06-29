@@ -177,7 +177,7 @@
     foot.appendChild(reset);
     var stLink = document.createElement('a');
     stLink.className = 'acc-statement-link';
-    stLink.href = 'הצהרת-נגישות.html';
+    stLink.href = 'הצהרת-נגישות';
     stLink.textContent = 'להצהרת הנגישות המלאה ולפניות';
     foot.appendChild(stLink);
     var credit = document.createElement('div');
@@ -315,7 +315,7 @@
     if (footBottom && !footBottom.querySelector('.footer-a11y-link')) {
       var fl = document.createElement('a');
       fl.className = 'footer-a11y-link';
-      fl.href = 'הצהרת-נגישות.html';
+      fl.href = 'הצהרת-נגישות';
       fl.textContent = 'הצהרת נגישות';
       fl.style.cssText = 'color:inherit;text-decoration:underline;opacity:.85;';
       var wrap = document.createElement('div');

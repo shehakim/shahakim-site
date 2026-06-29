@@ -154,11 +154,12 @@ if (fileInput && fileLabel) {
   });
 }
 
-// Active nav link
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+// Active nav link (כתובות נקיות, ללא סיומת .html)
+let currentPage = window.location.pathname.split('/').pop().replace(/\.html$/, '');
 document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+  const href = (link.getAttribute('href') || '').replace(/\.html$/, '').replace(/^\//, '');
+  const isHome = currentPage === '' || currentPage === 'index';
+  if (isHome ? (href === '' || href === 'index') : href === currentPage) {
     link.classList.add('active');
   }
 });
