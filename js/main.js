@@ -112,6 +112,8 @@ if (svcCards.length) {
 document.querySelectorAll('form.contact-form').forEach(form => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    // אכיפת שדות חובה (כולל אישור מדיניות הפרטיות) לפני שליחת ה-AJAX
+    if (!form.reportValidity()) return;
     const btn = form.querySelector('[type=submit]');
     const label = btn.dataset.label || 'שלח';
     btn.disabled = true;

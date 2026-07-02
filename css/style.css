@@ -922,6 +922,32 @@ p  { color: var(--gray); line-height: 1.8; }
   gap: 8px;
 }
 .footer-bottom-right { color: rgba(255,255,255,.5); }
+.footer-legal { display: flex; align-items: center; gap: 10px; }
+.footer-legal a { color: rgba(255,255,255,.75); text-decoration: none; transition: var(--transition); }
+.footer-legal a:hover { color: var(--gold); }
+.footer-legal .sep { color: rgba(255,255,255,.3); }
+
+/* אישור מדיניות פרטיות בטפסים */
+.form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 2px 0 18px;
+  font-size: .85rem;
+  line-height: 1.6;
+  color: var(--gray);
+}
+.form-consent input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+.form-consent label { cursor: pointer; }
+.form-consent a { color: var(--navy); font-weight: 700; text-decoration: underline; }
+.form-consent a:hover { color: var(--gold); }
 
 /* =========================================
    ANIMATIONS
